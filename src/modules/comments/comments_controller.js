@@ -6,7 +6,6 @@ const commentsModel = require('./comments_model')
 module.exports = {
     allComments: (req,res) => {
         const { blogId } = req.params
-
         commentsModel.findOne({ blog: blogId })
         .populate("comment_user")
         .populate({
@@ -15,9 +14,9 @@ module.exports = {
                 path: "blog_user"
             }
         })
-        .then((comment) => {
-            if(comment) {
-                return helper.response(res,200,`All comments for blog ${blogId} is succesfully appeared!`,comment)
+        .then((comments) => {
+            if(comments) {
+                return helper.response(res,200,`All comments for blog ${blogId} is succesfully appeared!`,comments)
             } else {
                 return helper.response(res,200,`All comments for blog ${blogId} is empty!`,null)
             }
