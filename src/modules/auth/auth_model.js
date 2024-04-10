@@ -3,31 +3,31 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema(
     {
-        username: {
+        user_username: {
             type: String,
             required: true
         },
-        email: {
+        user_email: {
             type: String,
             required: true
         },
-        password: {
+        user_password: {
             type: String,
             required: true
         },
-        first_name: {
+        user_first_name: {
             type: String
         },
-        last_name: {
+        user_last_name: {
             type: String
         },
-        address: {
+        user_address: {
             type: String
         },
-        phone_number: {
+        user_phone_number: {
             type: String
         },
-        avatar_image: {
+        user_avatar_image: {
             type: String
         }
     },

@@ -39,15 +39,15 @@ module.exports = {
                 return helper.response(res, 400, `A user data with id ${id} is not found! Please try again!`, null)
             } else {
                 const setData = {
-                    first_name: userFirstName,
-                    last_name: userLastName,
-                    address: userAddress,
-                    phone_number: userPhoneNumber,
-                    avatar_image: req.file ? req.file.filename : ''
+                    user_first_name: userFirstName,
+                    user_last_name: userLastName,
+                    user_address: userAddress,
+                    user_phone_number: userPhoneNumber,
+                    user_avatar_image: req.file ? req.file.filename : ''
                 }
                 if(checkUser) {
                     if(checkUser) {
-                        const imageToDelete = checkUser.avatar_image
+                        const imageToDelete = checkUser.user_avatar_image
                         const imageToExist = fs.existsSync(`src/uploads/${imageToDelete}`)
 
                         if(imageToDelete && imageToExist) {
@@ -74,7 +74,7 @@ module.exports = {
             } else {
                 if(checkUser) {
                     if(checkUser) {
-                        const imageToDelete = checkUser.avatar_image
+                        const imageToDelete = checkUser.user_avatar_image
                         const imageToExist = fs.existsSync(`src/uploads/${imageToDelete}`)
 
                         if(imageToDelete && imageToExist) {

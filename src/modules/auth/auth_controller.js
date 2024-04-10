@@ -15,9 +15,9 @@ module.exports = {
                 const salt = bcrypt.genSaltSync(10)
                 const encryptPassword = bcrypt.hashSync(userPassword, salt)
                 const newUser = new User({
-                    username: userName,
-                    email: userEmail,
-                    password: encryptPassword
+                    user_username: userName,
+                    user_email: userEmail,
+                    user_password: encryptPassword
                  })
                 const result = await newUser.save()
                 return helper.response(res, 200, 'New user is successfully created!', result)
@@ -30,16 +30,17 @@ module.exports = {
     login: async (req, res) => {
         try {
             const { userEmail, userPassword } = req.body
-            const checkEmail = await authModel.findOne({ email: userEmail })
+            const checkEmail = await authModel.findOne({ user_email: userEmail })
             if(checkEmail) {
                 const checkPassword = bcrypt.compareSync(
                     userPassword,
-                    checkEmail.password
+                    checkEmail.user_password
                 )
                 if(checkPassword) {
                     const payload = {
-                            username: checkEmail.username,
-                            email: checkEmail.email
+                            user_id: checkEmail._id,
+                            username: checkEmail.user_username,
+                            email: checkEmail.user_email
                     }
                     const token = jwt.sign({...payload}, process.env.JWT_SECRETKEY, {
                         expiresIn: process.env.JWT_EXPIRESTIME

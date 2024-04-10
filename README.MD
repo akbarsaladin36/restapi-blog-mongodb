@@ -1,6 +1,6 @@
-<h1 align="center">Express - Backend Boilerplate with MongoDB</h1>
+<h1 align="center">Express - Rest API Blog with MongoDB</h1>
 
-This API is created by me to make backend job more easier. With this boilerplate, you can free to use, change, and add any request that you need for your backend website. This API use Express as Nodejs framework and Mongodb as store database. [More about Express](https://en.wikipedia.org/wiki/Express.js)
+This API is created by me to implement REST API feature for blog. With this API, you can free to use, change, and add any request that you need for your backend website. This API use Express as Nodejs framework and Mongodb as store database. [More about Express](https://en.wikipedia.org/wiki/Express.js)
 
 ## Built With
 
@@ -44,6 +44,8 @@ JWT_EXPIRESTIME = <YOUR JWT EXPIRES TIME>
 
 1. Login and Register API
 2. CRUD Users API
+3. CRUD Blogs API
+4. CRUD Comments API (On Progress)
 
 ## License
 

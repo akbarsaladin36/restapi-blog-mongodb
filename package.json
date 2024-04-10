@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-backend-boilerplate",
+  "name": "restapi-blog",
   "version": "1.0.0",
-  "description": "Node.js Backend Boilerplate",
+  "description": "Rest API Blog With MongoDB",
   "main": "server.js",
   "scripts": {
     "dev": "npx nodemon ./src/server.js"
