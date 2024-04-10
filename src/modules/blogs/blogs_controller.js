@@ -5,7 +5,7 @@ module.exports = {
     allBlogs: (req,res) => {
         blogsModel.find({})
         .populate("blog_user")
-        .populate({ path: "comments", populate: { path: "comment_user" } })
+        .populate({ path: "comments", populate: { path: "comment_user blog" } })
         .then((blogs) => {
           if(blogs.length > 0) {
             return helper.response(res,200,'All blogs is succesfully appeared',blogs,null)  
