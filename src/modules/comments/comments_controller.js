@@ -6,8 +6,8 @@ const commentsModel = require('./comments_model')
 module.exports = {
     allComments: (req,res) => {
         const { blogId } = req.params
-        commentsModel.findOne({ blog: blogId })
-        .populate("comment_user")
+        commentsModel.find({ blog: blogId })
+        .populate({ path: "comment_user" })
         .populate({
             path: "blog",
             populate: {
@@ -41,7 +41,7 @@ module.exports = {
                 newComment.save()
                 .then((comment) => {
 
-                    $test = blogsModel.findByIdAndUpdate(blogId, 
+                    blogsModel.findByIdAndUpdate(blogId, 
                     {
                         $push: {
                             comments: comment._id

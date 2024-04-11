@@ -8,7 +8,7 @@ module.exports = {
     register: async (req, res) => {
         try {
             const { userName, userEmail, userPassword } = req.body
-            const checkEmail = await User.findOne({ email: userEmail })
+            const checkEmail = await User.findOne({ user_email: userEmail })
             if(checkEmail) {
                 return helper.response(res, 400, 'Your email is registered on this website. Please try a new email!', null)
             } else {
